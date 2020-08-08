@@ -1,5 +1,7 @@
-class Solution {
-public:
+#include<iostream>
+#include<stack>
+using namespace std;
+
     bool isValid(string s) {
        stack<char> st;
         bool ans = true;
@@ -12,21 +14,34 @@ public:
             else if(!st.empty())
             {
                 if( (st.top() == '(' && s[i] == ')' ) || (st.top() == '[' && s[i] == ']' ) || (st.top() == '{' && s[i] == '}' )  )
-                    st.pop();
-                else
-                    ans = false;
-            }
-            else
-            {
-                ans = false;
-                break;
-            }
-        }
-        if(!st.empty())
-            ans = false;
-        if(ans == false)
-            cout<"NO"<<endl;
-        else
-            cout<<"YES"<<endl;
+                   st.pop();
+               else
+                   ans = false;
+           }
+           else
+           {
+               ans = false;
+               break;
+           }
+       }
+       if(!st.empty())
+           ans = false;
+       return ans;
     }
-};
+    
+int main() {
+    int testCase;
+    cin>>testCase;
+    while(testCase--)
+    {
+        string expr;
+        cin>>expr;
+        if (isValid(expr))
+            cout << "YES"<<endl;
+        else
+            cout << "NO"<<endl;
+    }
+
+return 0;
+
+} 
