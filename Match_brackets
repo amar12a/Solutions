@@ -24,6 +24,9 @@ public:
         }
         if(!st.empty())
             ans = false;
-        return ans;
+        if(ans == false)
+            cout<"NO"<<endl;
+        else
+            cout<<"YES"<<endl;
     }
 };
